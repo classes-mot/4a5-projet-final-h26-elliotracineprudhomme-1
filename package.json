@@ -1,0 +1,27 @@
+{
+  "name": "projet-final",
+  "version": "1.0.0",
+  "description": "projet synthèse",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classes-mot/4a5-projet-final-h26-elliotracineprudhomme-1.git"
+  },
+  "author": "Elliot Racine-Prud'Homme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/classes-mot/4a5-projet-final-h26-elliotracineprudhomme-1/issues"
+  },
+  "homepage": "https://github.com/classes-mot/4a5-projet-final-h26-elliotracineprudhomme-1#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3",
+    "nodemon": "^3.1.14"
+  }
+}
