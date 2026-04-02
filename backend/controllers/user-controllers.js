@@ -54,7 +54,7 @@ const login = async (req, res, next) => {
   try {
     token = jwt.sign(
       { userId: existingUser.id, username: existingUser.username },
-      "CléDeSignature!!!!",
+      "TRAVAIL-SYNTHESE!!!!",
       { expiresIn: "1h" },
     );
   } catch (err) {

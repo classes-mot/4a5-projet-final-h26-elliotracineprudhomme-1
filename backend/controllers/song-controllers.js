@@ -50,17 +50,16 @@ const createSong = async (req, res, next) => {
       ),
     );
   }
-  const { title, album, dateParution, duree, note, artiste, lien, userId } =
+  const { titre, album, annee, duree, note, artiste, lien } =
     req.body;
   const createdSong = new Song({
-    title,
+    titre,
     album,
-    dateParution,
+    annee,
     duree,
     note,
     artiste,
     lien,
-    userId: req.userData.userId || userId,
   });
   // ajout de la chanson dans la base de données :
   try {
