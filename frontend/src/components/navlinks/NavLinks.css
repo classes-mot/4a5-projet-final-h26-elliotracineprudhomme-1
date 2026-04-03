@@ -3,10 +3,10 @@ ul {
   display: flex;
 }
 ul li {
-  margin-top: 1em;
-  display: flex;
-  align-items: center;
+
 }
 ul li img {
-    width: 50px;
+    width: 60px;
+    margin: 0 5px 0 5px;
+    border-radius: 20px;
 }

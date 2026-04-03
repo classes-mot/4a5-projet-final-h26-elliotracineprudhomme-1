@@ -2,11 +2,11 @@ import "./NavLinks.css";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/app-context.js";
-import ADD from "../../assets/ADD.png";
-import LOGIN from "../../assets/LOGIN.png";
-import LOGOUT from "../../assets/LOGOUT.png";
-import REGISTER from "../../assets/REGISTER.png";
-import ALL from "../../assets/MUSIC.png";
+import ADD from "../../assets/img/ADD.png";
+import LOGIN from "../../assets/img/LOGIN.png";
+import LOGOUT from "../../assets/img/LOGOUT.png";
+import REGISTER from "../../assets/img/REGISTER.png";
+import ALL from "../../assets/img/MUSIC.png";
 
 const NavLinks = () => {
   const auth = useContext(AuthContext);
