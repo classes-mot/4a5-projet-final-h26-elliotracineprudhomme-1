@@ -17,7 +17,6 @@ const addSong = async (req, res, next) => {
   const createdSong = new Task({
     titre: req.body.titre,
     album: req.body.album,
-    dateParution: req.body.dateParution,
     duree: req.body.duree,
     note: req.body.note,
     artiste: req.body.artiste,

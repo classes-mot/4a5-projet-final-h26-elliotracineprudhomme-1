@@ -1,0 +1,20 @@
+.tp-header {
+    background-image: url("../../assets/header.jpg");
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding:1em;
+}
+.tp-header-title {
+  font-family: var(--font);
+  text-decoration: none;
+  font-size: larger;
+}
+.tp-header-nav {
+  text-decoration: none;
+  padding: 0.5em;
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 900;
+  transition: 0.15s ease;
+}

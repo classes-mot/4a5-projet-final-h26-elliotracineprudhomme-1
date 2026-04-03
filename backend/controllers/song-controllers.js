@@ -55,7 +55,6 @@ const createSong = async (req, res, next) => {
   const createdSong = new Song({
     titre,
     album,
-    annee,
     duree,
     note,
     artiste,
