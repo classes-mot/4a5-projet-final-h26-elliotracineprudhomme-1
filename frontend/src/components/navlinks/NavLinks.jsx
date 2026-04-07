@@ -34,12 +34,12 @@ const NavLinks = () => {
       {auth.isLoggedIn && (
         <ul>
           <li>
-            <NavLink className="" to="/add">
+            <NavLink to="/add">
               <img src={ADD} alt="link-to-add" />
             </NavLink>
           </li>
           <li>
-            <NavLink className="" to="" onClick={auth.logout}>
+            <NavLink to="/songs" onClick={auth.logout}>
               <img src={LOGOUT} alt="link-to-logout" />
             </NavLink>
           </li>
