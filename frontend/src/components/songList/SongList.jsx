@@ -3,9 +3,10 @@ import "./SongList.css";
 import Category from "../category/Category";
 import SongItem from "../songItem/SongItem";
 import RatingScale from "../ratingScale/RatingScale";
-
+// simplifier ****************
 const SongList = (props) => {
-  if (props.items.length === 0) {
+  console.log("item:", props.items)
+  if (items.length === 0) {
     return (
       <div>
         <h3>Aucune chanson n'a été trouvée...</h3>
@@ -16,7 +17,7 @@ const SongList = (props) => {
   return (
     <div className="">
       <ul className="">
-        {props.items.map((song) => {
+        {items.map((song) => {
           <li key={song.id}>
             <SongItem
               titre={song.titre}

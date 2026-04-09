@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SongList from "../songList/SongList";
 import { useHttpClient } from "../hooks/http-hook";
-import ModalMsgErreur from "../elements/ModalMsgErreur";
+
 
 const Songs = () => {
   const [loadedSongs, setLoadedSongs] = useState([]);
@@ -19,13 +19,7 @@ const Songs = () => {
   }, [sendRequest]);
   return (
     <>
-      <div>
-        <ModalMsgErreur
-          msg={error}
-          onClose={() => clearError()}
-        ></ModalMsgErreur>
-      </div>
-      <SongList items={loadedSongs} />
+      <SongList items={"loadedSongs"} />
     </>
   );
 };

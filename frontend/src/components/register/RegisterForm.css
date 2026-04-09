@@ -1,0 +1,4 @@
+input::placeholder {
+    color: rgba(39, 125, 255, 0.582);
+    font-family: var(--font);
+}

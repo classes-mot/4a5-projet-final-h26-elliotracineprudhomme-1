@@ -38,12 +38,13 @@ const LoginForm = () => {
         <h1>login</h1>
         <form onSubmit={submitHandler}>
           <div className="label-input">
-            <label htmlFor="username">username</label>
+            <label htmlFor="username">Username</label>
             <input
               id="username"
               type="text"
               name="username"
               autoComplete="username"
+              placeholder="username"
               onChange={(event) =>
                 handleLoginInputChange("username", event.target.value)
               }
@@ -51,12 +52,13 @@ const LoginForm = () => {
             />
           </div>
           <div className="label-input">
-            <label htmlFor="password">password</label>
+            <label htmlFor="password">Password</label>
             <input
               id="password"
               type="password"
               name="password"
               autoComplete="current-password"
+              placeholder="password"
               onChange={(event) =>
                 handleLoginInputChange("password", event.target.value)
               }
