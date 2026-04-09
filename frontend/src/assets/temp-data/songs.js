@@ -1,5 +1,6 @@
 const songs = [
   {
+    id: 1,
     titre: "The Dying Illusion",
     album: "Chapter VI",
     annee: 2008,
@@ -9,6 +10,7 @@ const songs = [
     lien: "https://open.spotify.com/intl-fr/track/4PiRCQMRUUpVOHLP9LiW5f?si=6013ccc013944b4a",
   },
   {
+    id: 2,
     titre: "Crazy Train",
     album: "Blizzard of Ozz",
     annee: 1980,

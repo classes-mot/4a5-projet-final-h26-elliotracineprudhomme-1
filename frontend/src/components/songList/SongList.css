@@ -29,3 +29,80 @@
     letter-spacing: 2px;
     padding-bottom: 6px;
 }
+
+
+
+.song-card {
+    margin: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 6px;
+    background-color: var(--secondary-card-color);
+    color: white;
+    font-family: var(--font);
+    min-width: 650px;
+}
+
+.song-card-upper-section {
+    margin: 0;
+    padding: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    background-color: var(--main-card-color);
+    letter-spacing: 2.5px;
+}
+
+.song-card-upper-section p {
+    margin: 6px;
+    opacity: 75%;
+}
+
+.song-card-lower-section {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 2px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-card-upper-section #length {
+    opacity: 100%;
+    color: #3070fa;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-self: right;
+}
+
+.song-card-options {
+    margin-right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 112px;
+}
+
+.song-card-options button {
+    background-color: #0035ab;
+    border-style: none;
+    border-radius: 6px;
+    color: white;
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 6px;
+    width: 50px;
+    font-size: x-large;
+}
+
+.song-card-options a {
+
+    text-decoration: none;
+}

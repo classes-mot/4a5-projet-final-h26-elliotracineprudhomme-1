@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { AuthContext } from "../context/app-context.js";
+import SongList from "./songList/SongList.jsx";
 
 const routerLoggedIn = createBrowserRouter([
   {
@@ -20,8 +21,8 @@ const routerLoggedIn = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "", element: <Songs /> },
-      { path: "/songs", element: <Songs /> },
+      { path: "", element: <SongList /> },
+      { path: "/songs", element: <SongList /> },
       { path: "/edit/:songID", element: <UpdateSong /> },
       { path: "/add", element: <NewSong /> },
       { path: "login", element: <Navigate to="/songs" replace /> },
@@ -36,8 +37,8 @@ const routerLoggedOut = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "", element: <Songs /> },
-      { path: "/songs", element: <Songs /> },
+      { path: "", element: <SongList /> },
+      { path: "/songs", element: <SongList /> },
       { path: "login", element: <Auth /> },
       { path: "register", element: <RegisterForm /> },
     ],
