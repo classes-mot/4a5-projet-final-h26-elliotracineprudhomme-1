@@ -1,0 +1,31 @@
+.song-error-card {
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 6px;
+    width: 450px;
+    background-color: var(--secondary-card-color);
+    color: white;
+    max-height: fit-content;
+    font-family: var(--font);
+}
+
+
+.song-error-card h3 {
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 6px;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: var(--main-card-color);
+    letter-spacing: 2.5px;
+}
+
+.song-error-card p {
+    display: flex;
+    justify-content: center;
+    letter-spacing: 2px;
+    padding-bottom: 6px;
+}

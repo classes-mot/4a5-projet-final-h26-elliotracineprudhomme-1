@@ -1,4 +1,4 @@
-import SongList from "./songList/SongList";
+import Songs from "./containers/Songs.jsx";
 import RootLayout from "./containers/RootLayout";
 import ErrorPage from "./containers/ErrorPage";
 import UpdateSong from "./containers/UpdateSong";
@@ -20,8 +20,8 @@ const routerLoggedIn = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "", element: <SongList /> },
-      { path: "/songs", element: <SongList /> },
+      { path: "", element: <Songs /> },
+      { path: "/songs", element: <Songs /> },
       { path: "/edit/:songID", element: <UpdateSong /> },
       { path: "/add", element: <NewSong /> },
       { path: "login", element: <Navigate to="/songs" replace /> },
@@ -36,8 +36,8 @@ const routerLoggedOut = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "", element: <SongList /> },
-      { path: "/songs", element: <SongList /> },
+      { path: "", element: <Songs /> },
+      { path: "/songs", element: <Songs /> },
       { path: "login", element: <Auth /> },
       { path: "register", element: <RegisterForm /> },
     ],
