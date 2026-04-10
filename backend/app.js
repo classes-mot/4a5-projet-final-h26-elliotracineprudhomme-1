@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use(errorHandler);
-
-app.listen(5000, () => {
-  console.log("Le serveur est activé au : ", "http//localhost:5000");
+const port = 5000;
+app.listen(port, () => {
+  console.log("Le serveur est activé au : ", `http//localhost:${port}`);
 });

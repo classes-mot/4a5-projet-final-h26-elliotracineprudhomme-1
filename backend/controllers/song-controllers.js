@@ -15,7 +15,7 @@ const getSongs = async (req, res, next) => {
   if (!songs) {
     return next(new HttpError("Les chansons n'ont pas été trouvés.", 404));
   }
-  res.json({ chansons: songs.map((song) => song.toObject({ getters: true })) });
+  res.json({ songs: songs.map((song) => song.toObject({ getters: true })) });
 };
 
 // méthode pour obtenir une chanson spécifique :
