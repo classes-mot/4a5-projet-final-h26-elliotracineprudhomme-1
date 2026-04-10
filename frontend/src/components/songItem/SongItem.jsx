@@ -7,7 +7,7 @@ const SongItem = (props) => {
   return (
     <li className="song-card">
       <div className="song-card-upper-section">
-        <h6>{props.titre}</h6>
+        <h3>{props.titre}</h3>
         <p>{props.artiste}</p>
         <p>{props.album}</p>
         <p>{props.duree}</p>

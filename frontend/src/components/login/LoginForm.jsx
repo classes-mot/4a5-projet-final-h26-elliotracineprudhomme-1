@@ -1,31 +1,35 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import "./Form.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
-
+import { useState } from "react";
+import { useHttpClient } from "../../hooks/http-hook";
 const LoginForm = () => {
-  const navigate = useNavigate();
   const auth = useContext(AuthContext);
+  const { sendRequest } = useHttpClient();
   const [loginValues, setLoginValues] = useState({
     username: "",
     password: "",
   });
-  const handleLoginInputChange = (id, value) => {
+
+  const handleLoginChange = (id, value) => {
     setLoginValues((prevValue) => ({
       ...prevValue,
       [id]: value,
     }));
   };
+
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const reponse = await fetch("http://localhost:5000/api/users/login", {
-        method: "POST",
-        headers: {
+      const reponse = await sendRequest(
+        "http://localhost:5000/api/users/login",
+        "POST",
+        JSON.stringify(loginValues),
+        {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(loginValues),
-      });
+      );
       auth.login(reponse.userId, reponse.token);
       console.log("connecté!!!!");
     } catch (err) {
@@ -46,7 +50,7 @@ const LoginForm = () => {
               autoComplete="username"
               placeholder="username"
               onChange={(event) =>
-                handleLoginInputChange("username", event.target.value)
+                handleLoginChange("username", event.target.value)
               }
               value={loginValues.username}
             />
@@ -60,7 +64,7 @@ const LoginForm = () => {
               autoComplete="current-password"
               placeholder="password"
               onChange={(event) =>
-                handleLoginInputChange("password", event.target.value)
+                handleLoginChange("password", event.target.value)
               }
               value={loginValues.password}
             />

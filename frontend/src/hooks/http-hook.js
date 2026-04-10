@@ -1,8 +1,6 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 
 export const useHttpClient = () => {
-  const [error, setError] = useState(null);
-
   const sendRequest = useCallback(
     async (url, method = "GET", body = null, headers = {}) => {
       try {
@@ -31,9 +29,5 @@ export const useHttpClient = () => {
     [],
   );
 
-  const clearError = () => {
-    setError(null);
-  };
-
-  return { error, sendRequest, clearError };
+  return { sendRequest };
 };

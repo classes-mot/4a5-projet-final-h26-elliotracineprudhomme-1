@@ -86,3 +86,12 @@
 #rating {
     grid-area: rating;
 }
+
+.form-error {
+    font-size: x-small;
+    display: flex;
+    justify-content:left;
+    margin-left:6px;
+    margin-top: 0;
+    opacity: 60%;
+}

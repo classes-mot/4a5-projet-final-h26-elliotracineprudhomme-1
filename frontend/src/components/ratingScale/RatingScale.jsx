@@ -1,3 +1,4 @@
+import "./RatingScale.css";
 import Star from "../../assets/img/star.png";
 
 export default function RatingScale({ value }) {
