@@ -1,7 +1,8 @@
 import RootLayout from "./containers/RootLayout";
 import ErrorPage from "./containers/ErrorPage";
 import UpdateSong from "./containers/UpdateSong";
-import NewSong from "./containers/NewSong";
+import CreateSongForm from "./songForm/CreateSongForm.jsx";
+import ModifySongForm from "./songForm/ModifySongForm.jsx";
 import Auth from "./containers/Auth";
 import RegisterForm from "./register/RegisterForm";
 
@@ -22,8 +23,8 @@ const routerLoggedIn = createBrowserRouter([
     children: [
       { path: "", element: <SongList /> },
       { path: "/songs", element: <SongList /> },
-      { path: "/edit/:songID", element: <UpdateSong /> },
-      { path: "/add", element: <NewSong /> },
+      { path: "/edit/:songID", element: <ModifySongForm /> },
+      { path: "/add", element: <CreateSongForm /> },
       { path: "login", element: <Navigate to="/songs" replace /> },
       { path: "register", element: <Navigate to="/songs" replace /> },
     ],

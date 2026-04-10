@@ -28,8 +28,8 @@
   font-family: var(--font);
   margin: 6px;
   background-color: #000a21;
-  border-style: none;
-  color: #0036abbd;
+  border: solid 3px #0036aabd;
+  color: #145fffbd;
   width: 100px;
 }
 .form-card label {
