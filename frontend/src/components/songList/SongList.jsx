@@ -27,7 +27,6 @@ const SongList = () => {
       </div>
     );
   }
-  console.log(loadedSongs);
   return (
     <>
       <ul className="song-list">

@@ -46,43 +46,49 @@ const routerLoggedOut = createBrowserRouter([
 
 const App = () => {
   const storedIsLoggedIn = sessionStorage.getItem("isLoggedIn");
-  const storedUserId = sessionStorage.getItem("userId");
-
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    storedIsLoggedIn === "true" ? true : false,
-  );
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const login = useCallback((uid, token) => {
     setToken(token);
     setUserId(uid);
-    setIsLoggedIn(true);
     sessionStorage.setItem("isLoggedIn", true);
-    sessionStorage.setItem("userId", uid);
+    setIsLoggedIn(true);
   }, []);
-
   const logout = useCallback(() => {
     setToken(null);
     setUserId(null);
-    setIsLoggedIn(false);
     sessionStorage.setItem("isLoggedIn", false);
-    sessionStorage.setItem("userId", null);
+    setIsLoggedIn(false);
   }, []);
-
-  return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn,
-        token,
-        userId,
-        login,
-        logout,
-      }}
-    >
-      <RouterProvider router={isLoggedIn ? routerLoggedIn : routerLoggedOut} />
-    </AuthContext.Provider>
-  );
+  if (token !== null) {
+    return (
+      <AuthContext.Provider
+        value={{
+          isLoggedIn:true,
+          token: token,
+          userId: userId,
+          login: login,
+          logout: logout,
+        }}
+      >
+        <RouterProvider router={routerLoggedIn} />
+      </AuthContext.Provider>
+    );
+  } else {
+    return (
+      <AuthContext.Provider
+        value={{
+          isLoggedIn:false,
+          token: null,
+          userId: null,
+          login: login,
+        }}
+      >
+        <RouterProvider router={routerLoggedOut} />
+      </AuthContext.Provider>
+    );
+  }
 };
 
 export default App;

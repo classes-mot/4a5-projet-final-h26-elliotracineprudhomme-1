@@ -3,10 +3,11 @@ import "./SongForm.css";
 import { useState } from "react";
 import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
+import { useHttpClient } from '../../hooks/http-hook.js';
 
 const CreateSongForm = () => {
   const auth = useContext(AuthContext);
-
+  const { sendRequest } = useHttpClient();
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
   const [emptyArtist, setIsArtistEmpty] = useState(false);
@@ -14,7 +15,6 @@ const CreateSongForm = () => {
   const [emptyYear, setIsYearEmpty] = useState(false);
   const [emptyLength, setIsLengthEmpty] = useState(false);
   const [emptyRating, setIsRatingEmpty] = useState(false);
-
   async function addSongSubmitHandler(event) {
     event.preventDefault();
     const fd = new FormData(event.target);
@@ -56,13 +56,13 @@ const CreateSongForm = () => {
     }
 
     const newSong = {
-      title: data.title,
+      titre: data.title,
       album: data.album,
-      artist: data.artist,
-      link: data.link,
-      year: data.year,
-      length: data.length,
-      rating: data.rating,
+      annee: data.year,
+      duree: data.length,
+      note: data.rating,
+      artiste: data.artist,
+      lien: data.link,
     };
 
     await sendRequest(
@@ -70,7 +70,7 @@ const CreateSongForm = () => {
       "POST",
       JSON.stringify(newSong),
       {
-        Authorization: "Bearer " + auth.token,
+        Authorization: 'Bearer ' + auth.token,
       },
     );
     event.target.reset();
@@ -108,7 +108,7 @@ const CreateSongForm = () => {
             <label htmlFor="link">Link</label>
             <input
               id="link"
-              type="url"
+              type="text"
               name="link"
               placeholder="Spotify link"
             />
