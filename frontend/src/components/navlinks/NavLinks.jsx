@@ -11,7 +11,7 @@ import ALL from "../../assets/img/MUSIC.png";
 const NavLinks = () => {
   const auth = useContext(AuthContext);
   return (
-    <ul className="">
+    <ul className="navlinks">
       <li>
         <NavLink to="/">
           <img src={ALL} alt="link-to-main" />
@@ -32,7 +32,7 @@ const NavLinks = () => {
         </>
       )}
       {auth.isLoggedIn && (
-        <ul>
+        <>
           <li>
             <NavLink to="/add">
               <img src={ADD} alt="link-to-add" />
@@ -43,7 +43,7 @@ const NavLinks = () => {
               <img src={LOGOUT} alt="link-to-logout" />
             </NavLink>
           </li>
-        </ul>
+        </>
       )}
     </ul>
   );

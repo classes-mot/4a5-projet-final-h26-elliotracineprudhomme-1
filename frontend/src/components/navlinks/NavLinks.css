@@ -1,12 +1,10 @@
-ul {
+.navlinks {
   list-style: none;
   display: flex;
+  flex-direction: row;
 }
-ul li {
-
-}
-ul li img {
-    width: 60px;
-    margin: 0 5px 0 5px;
-    border-radius: 20px;
+.navlinks li img {
+  width: 60px;
+  margin: 0 5px 0 5px;
+  border-radius: 20px;
 }

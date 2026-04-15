@@ -47,7 +47,11 @@ const routerLoggedOut = createBrowserRouter([
 const App = () => {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const storedIsLoggedIn = sessionStorage.getItem("isLoggedIn");
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    storedIsLoggedIn === "true" ? true : false,
+  );
+
   const login = useCallback((uid, token) => {
     setToken(token);
     setUserId(uid);
@@ -55,16 +59,18 @@ const App = () => {
     setIsLoggedIn(true);
   }, []);
   const logout = useCallback(() => {
-    setToken(null);
-    setUserId(null);
     sessionStorage.setItem("isLoggedIn", false);
     setIsLoggedIn(false);
+    setToken(null);
+    setUserId(null);
+    console.log("déconnecté!!")
   }, []);
+
   if (token !== null) {
     return (
       <AuthContext.Provider
         value={{
-          isLoggedIn:isLoggedIn,
+          isLoggedIn: isLoggedIn,
           token: token,
           userId: userId,
           login: login,
@@ -78,7 +84,7 @@ const App = () => {
     return (
       <AuthContext.Provider
         value={{
-          isLoggedIn:isLoggedIn,
+          isLoggedIn: isLoggedIn,
           token: null,
           userId: null,
           login: login,

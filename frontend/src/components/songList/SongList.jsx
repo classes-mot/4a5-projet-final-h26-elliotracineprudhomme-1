@@ -26,6 +26,9 @@ const SongList = () => {
       </div>
     );
   }
+  {
+    alert("ERREUR : l'ajout n'est pas fonctionnel");
+  }
   return (
     <>
       <ul className="song-list">
