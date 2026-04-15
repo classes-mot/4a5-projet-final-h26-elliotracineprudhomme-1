@@ -8,7 +8,6 @@ const SongList = () => {
   const { sendRequest } = useHttpClient();
 
   useEffect(() => {
-    //ne pas faire de fonction asynchrone dans useEffect qui retourne une promise, useEffect n'aime pas ca..
     const fetchSongs = async () => {
       try {
         const reponse = await sendRequest("http://localhost:5000/api/songs");

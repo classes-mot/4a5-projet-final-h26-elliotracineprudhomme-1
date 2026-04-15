@@ -45,7 +45,6 @@ const routerLoggedOut = createBrowserRouter([
 ]);
 
 const App = () => {
-  const storedIsLoggedIn = sessionStorage.getItem("isLoggedIn");
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,7 +64,7 @@ const App = () => {
     return (
       <AuthContext.Provider
         value={{
-          isLoggedIn:true,
+          isLoggedIn:isLoggedIn,
           token: token,
           userId: userId,
           login: login,
@@ -79,7 +78,7 @@ const App = () => {
     return (
       <AuthContext.Provider
         value={{
-          isLoggedIn:false,
+          isLoggedIn:isLoggedIn,
           token: null,
           userId: null,
           login: login,
