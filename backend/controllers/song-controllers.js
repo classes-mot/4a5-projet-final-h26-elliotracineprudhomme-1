@@ -55,6 +55,7 @@ const createSong = async (req, res, next) => {
   const createdSong = new Song({
     titre,
     album,
+    annee,
     duree,
     note,
     artiste,
@@ -64,6 +65,7 @@ const createSong = async (req, res, next) => {
   try {
     await createdSong.save();
   } catch (err) {
+    console.log(err);
     const erreur = new HttpError(
       "l'ajout de la chanson dans la base de données a échoué.",
       500,

@@ -13,6 +13,7 @@ songRoutes.patch(
   [
     check("titre").not().isEmpty(),
     check("album").not().isEmpty(),
+    check("annee").not().isEmpty(),
     check("duree").not().isEmpty(),
     check("note").not().isEmpty(),
     check("artiste").not().isEmpty(),
@@ -24,14 +25,6 @@ songRoutes.delete("/:songID", checkAuth, songsController.deleteSong);
 songRoutes.post(
   "/",
   checkAuth,
-  [
-    check("titre").not().isEmpty(),
-    check("album").not().isEmpty(),
-    check("duree").not().isEmpty(),
-    check("note").not().isEmpty(),
-    check("artiste").not().isEmpty(),
-    check("lien").not().isEmpty(),
-  ],
   songsController.createSong,
 );
 

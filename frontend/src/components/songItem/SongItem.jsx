@@ -6,15 +6,15 @@ import { useHttpClient } from "../../hooks/http-hook";
 import Ximage from "../../assets/img/X.png";
 const SongItem = (props) => {
   const auth = useContext(AuthContext);
-  const { sendRequest } = useHttpClient();
+  // const { sendRequest } = useHttpClient();
   async function deleteSong() {
     try {
-      const response = await sendRequest(
-        `http://localhost:5000/api/songs/${props.id}`,
-        "DELETE",
-        JSON.stringify(props),
-        { Authorization: "Bearer " + auth.token },
-      );
+      await fetch(`http://localhost:5000/api/songs/${props.id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + auth.token,
+        },
+      });
     } catch (err) {
       console.log(err);
     }
@@ -32,9 +32,11 @@ const SongItem = (props) => {
       <div className="song-card-lower-section">
         {props.children}
         <div className="song-card-options">
-          <Link to="/">
-          <button>...</button>
-          </Link>
+          {auth.isLoggedIn ? (
+            <Link to="/">
+              <button>...</button>
+            </Link>
+          ) : null}
           <img
             onClick={() => deleteSong()}
             src={Ximage}

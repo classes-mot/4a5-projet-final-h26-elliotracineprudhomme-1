@@ -3,11 +3,11 @@ import "./SongForm.css";
 import { useState } from "react";
 import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
-import { useHttpClient } from '../../hooks/http-hook.js';
+import { useHttpClient } from "../../hooks/http-hook.js";
 
 const CreateSongForm = () => {
   const auth = useContext(AuthContext);
-  const { sendRequest } = useHttpClient();
+  // const { sendRequest } = useHttpClient();
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
   const [emptyArtist, setIsArtistEmpty] = useState(false);
@@ -64,16 +64,24 @@ const CreateSongForm = () => {
       artiste: data.artist,
       lien: data.link,
     };
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/songs",
 
-    await sendRequest(
-      "http://localhost:5000/api/songs",
-      "POST",
-      JSON.stringify(newSong),
-      {
-        Authorization: 'Bearer ' + auth.token,
-      },
-    );
-    event.target.reset();
+        {
+          body: JSON.stringify(newSong),
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + auth.token,
+          },
+        },
+      );
+      if (!response) {
+        console.log("une erreur s'est produite.");
+      }
+    } catch (err) {
+      console.log("Erreur lors de l'ajout : ", err);
+    }
   }
   return (
     <>
