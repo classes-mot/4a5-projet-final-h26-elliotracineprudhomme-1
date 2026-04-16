@@ -1,19 +1,20 @@
 import { useTranslation } from "react-i18next";
 
-export default function langSwitcher() {
+const Language = () => {
   const { i18n } = useTranslation();
-  const changeLang = (lang) => {
+  const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
 
   return (
     <div>
-      <button onClick={() => { changeLang("fr"); }}>
+      <button className="lang-btn" onClick={() => { changeLanguage("fr"); }}>
         fr
       </button>
-      <button onClick={() => { changeLang("en"); }}>
+      <button className="lang-btn" onClick={() => { changeLanguage("en"); }}>
         en
       </button>
     </div>
   );
 }
+export default Language;

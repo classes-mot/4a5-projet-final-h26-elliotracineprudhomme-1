@@ -4,10 +4,10 @@ import "./index.css";
 import "./i18n";
 import App from "./components/App";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Suspense fallback={<p>Un moment...</p>}>
+createRoot(document.getElementById("root")).render(
+  <Suspense fallback={<p>Un moment...</p>}>
+    <StrictMode>
       <App />
-    </Suspense>
-  </StrictMode>
+    </StrictMode>
+  </Suspense>,
 );

@@ -7,7 +7,7 @@ import LOGIN from "../../assets/img/LOGIN.png";
 import LOGOUT from "../../assets/img/LOGOUT.png";
 import REGISTER from "../../assets/img/REGISTER.png";
 import ALL from "../../assets/img/MUSIC.png";
-import langSwitcher from "../../i18n.js";
+import Language from "../language/Language.jsx";
 
 const NavLinks = () => {
   const auth = useContext(AuthContext);
@@ -46,8 +46,8 @@ const NavLinks = () => {
           </li>
         </>
       )}
-      <li>
-        <langSwitcher/>
+      <li className="lang-switch">
+        <Language/>
       </li>
     </ul>
   );
