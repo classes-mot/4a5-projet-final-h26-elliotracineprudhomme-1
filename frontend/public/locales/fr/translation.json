@@ -1,0 +1,57 @@
+{
+  "header": {
+    "title": "MUSIQUE.COM"
+  },
+  "login": {
+    "title": "Se connecter",
+    "username-placeholder": "nom d'utilisateur",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "password-placeholder": "mot de passe",
+    "register": "s'enregistrer",
+    "login": "entrer"
+  },
+  "register": {
+    "title": "Creer un compte",
+    "username": "Nom d'utilisateur",
+    "username-placeholder": "nom d'utilisateur",
+    "password": "Mot de passe",
+    "password-placeholder": "mot de passe",
+    "reset": "effacer",
+    "register": "creer le compte",
+    "confirm": "confirmez le mot de passe"
+  },
+  "createSong": {
+    "title": "Nouvelle Chanson",
+    "song-title": "Titre",
+    "song-artist": "Artiste",
+    "song-link": "Lien",
+    "song-year": "Année",
+    "song-length": "Durée",
+    "song-rating": "Note",
+    "reset": "effacer",
+    "save": "enregistrer",
+    "empty-title": "veuillez entrer un titre.",
+    "empty-artist": "veuillez spécifier l'artiste.",
+    "empty-album": "veuillez spécifier l'album",
+    "empty-link": "veuillez entrer un lien.",
+    "empty-year": "veuillez entrer la date de sortie.",
+    "empty-length": "veuillez entrer la durée de la chanson.",
+    "empty-rating": "veuillez noter la chanson."
+  },
+  "modifySong": {
+    "song-title": "Titre",
+    "song-artist": "Artiste",
+    "song-link": "Lien",
+    "song-year": "Année",
+    "song-album": "Album",
+    "song-length": "Durée",
+    "song-rating": "Note",
+    "reset": "effacer",
+    "save": "enregistrer"
+  },
+  "error": {
+    "title": "Une erreur est survenue!",
+    "msg": "Cette page est introuvable ..."
+  }
+}

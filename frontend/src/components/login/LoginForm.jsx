@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
 import { useState } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
+import { useTranslation } from "react-i18next";
+
 const LoginForm = () => {
+  const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
   const [loginValues, setLoginValues] = useState({
@@ -31,7 +34,6 @@ const LoginForm = () => {
         },
       );
       auth.login(reponse.userId, reponse.token);
-      console.log("connecté!!!!");
     } catch (err) {
       console.error(err);
     }
@@ -39,16 +41,16 @@ const LoginForm = () => {
   return (
     <>
       <div className="form-card">
-        <h1>login</h1>
+        <h1>{t("login.title")}</h1>
         <form onSubmit={submitHandler}>
           <div className="label-input">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">{t("login.username")}</label>
             <input
               id="username"
               type="text"
               name="username"
               autoComplete="username"
-              placeholder="username"
+              placeholder={t("login.username-placeholder")}
               onChange={(event) =>
                 handleLoginChange("username", event.target.value)
               }
@@ -56,13 +58,13 @@ const LoginForm = () => {
             />
           </div>
           <div className="label-input">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t("login.password")}</label>
             <input
               id="password"
               type="password"
               name="password"
               autoComplete="current-password"
-              placeholder="password"
+              placeholder={t("login.password-placeholder")}
               onChange={(event) =>
                 handleLoginChange("password", event.target.value)
               }
@@ -72,9 +74,9 @@ const LoginForm = () => {
 
           <div>
             <Link to="/register">
-              <button>register</button>
+              <button>{t("login.register")}</button>
             </Link>
-            <button type="submit">login</button>
+            <button type="submit">{t("login.login")}</button>
           </div>
         </form>
       </div>

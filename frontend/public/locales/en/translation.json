@@ -1,0 +1,58 @@
+{
+  "header": {
+    "title": "MUSIC.COM"
+  },
+  "login": {
+    "title": "login",
+    "username": "Username",
+    "username-placeholder": "username",
+    "password": "Password",
+    "password-placeholder": "password",
+    "register": "register",
+    "login": "login"
+  },
+  "register": {
+    "title": "Register",
+    "username": "Username",
+    "username-placeholder": "username",
+    "password": "Password",
+    "password-placeholder": "password",
+    "reset": "reset",
+    "register": "register",
+    "confirm": "confirm the password"
+  },
+  "createSong": {
+    "title": "New song",
+    "song-title": "Title",
+    "song-artist": "Artist",
+    "song-link": "Link",
+    "song-year": "Year",
+    "song-length": "Length",
+    "song-rating": "Rating",
+    "reset": "reset",
+    "save": "save",
+    "empty-title": "please specify the title.",
+    "empty-artist": "please specify the artist.",
+    "empty-album": "please specify the album.",
+    "empty-link": "please enter the link.",
+    "empty-year": "please specify the year of release.",
+    "empty-length": "please specify the length of the song.",
+    "empty-rating": "please rate the song."
+  },
+  "modifySong": {
+    "title": "New song",
+    "song-title": "Title",
+    "song-artist": "Artist",
+    "song-link": "Link",
+    "song-album": "Album",
+    "song-year": "Year",
+    "song-length": "Length",
+    "song-rating": "Rating",
+    "reset": "reset",
+    "save": "save"
+  },
+  "error": {
+    "title": "An error has occurred!",
+    "msg": "This page could not be found ..."
+  }
+}

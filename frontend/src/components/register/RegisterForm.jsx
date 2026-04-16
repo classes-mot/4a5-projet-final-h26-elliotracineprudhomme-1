@@ -2,8 +2,10 @@ import { useState, useContext } from "react";
 import "./RegisterForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
+import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const auth = useContext(AuthContext);
   const [loginValues, setLoginValues] = useState({
@@ -35,16 +37,16 @@ const RegisterForm = () => {
   return (
     <>
       <div className="form-card">
-        <h1>register</h1>
+        <h1>{t("register.title")}</h1>
         <form onSubmit={submitHandler}>
           <div className="label-input">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">{t("register.username")}</label>
             <input
               id="username"
               type="text"
               name="username"
               autoComplete="off"
-              placeholder="username"
+              placeholder={t("register.username-placeholder")}
               onChange={(event) =>
                 handleLoginInputChange("username", event.target.value)
               }
@@ -52,13 +54,13 @@ const RegisterForm = () => {
             />
           </div>
           <div className="label-input">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t("register.password")}</label>
             <input
               id="password"
               type="password"
               name="password"
               autoComplete="new-password"
-              placeholder="password"
+              placeholder={t("register.password-placeholder")}
               onChange={(event) =>
                 handleLoginInputChange("password", event.target.value)
               }
@@ -71,7 +73,7 @@ const RegisterForm = () => {
               type="password"
               name="confirm-password"
               autoComplete="new-password"
-              placeholder="confirm password"
+              placeholder={t("register.confirm")}
               onChange={(event) =>
                 handleLoginInputChange("password", event.target.value)
               }
@@ -80,8 +82,8 @@ const RegisterForm = () => {
           </div>
 
           <div>
-            <button>reset</button>
-            <button type="submit">register</button>
+            <button>{t("register.reset")}</button>
+            <button type="submit">{t("register.register")}</button>
           </div>
         </form>
       </div>

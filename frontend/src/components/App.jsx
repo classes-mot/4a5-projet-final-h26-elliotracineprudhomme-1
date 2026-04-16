@@ -57,6 +57,7 @@ const App = () => {
     setUserId(uid);
     sessionStorage.setItem("isLoggedIn", true);
     setIsLoggedIn(true);
+      console.log("connecté!!")
   }, []);
   const logout = useCallback(() => {
     sessionStorage.setItem("isLoggedIn", false);
@@ -70,7 +71,7 @@ const App = () => {
     return (
       <AuthContext.Provider
         value={{
-          isLoggedIn: isLoggedIn,
+          isLoggedIn: true,
           token: token,
           userId: userId,
           login: login,
@@ -84,7 +85,7 @@ const App = () => {
     return (
       <AuthContext.Provider
         value={{
-          isLoggedIn: isLoggedIn,
+          isLoggedIn: false,
           token: null,
           userId: null,
           login: login,

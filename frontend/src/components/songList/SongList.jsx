@@ -4,14 +4,14 @@ import RatingScale from "../ratingScale/RatingScale.jsx";
 import { useHttpClient } from "../../hooks/http-hook.js";
 import "./SongList.css";
 const SongList = () => {
-  const [loadedSongs, setLoadedSong] = useState([]);
+  const [loadedSongs, setLoadedSongs] = useState([]);
   const { sendRequest } = useHttpClient();
 
   useEffect(() => {
     const fetchSongs = async () => {
       try {
         const reponse = await sendRequest("http://localhost:5000/api/songs");
-        setLoadedSong(reponse.songs);
+        setLoadedSongs(reponse.songs);
       } catch (err) {
         console.log("erreur lors de la recherche des chansons : ", err);
       }
@@ -36,6 +36,7 @@ const SongList = () => {
             titre={song.titre}
             album={song.album}
             duree={song.duree}
+            annee={song.annee}
             note={song.note}
             artiste={song.artiste}
             lien={song.lien}

@@ -35,7 +35,7 @@ const getSongById = async (req, res, next) => {
     return next(new HttpError("La chanson n'a pas été trouvée ...", 404));
   }
 
-  res.json({ chanson: song.toObject({ getters: true }) });
+  res.json({ song: song.toObject({ getters: true }) });
 };
 
 // méthode pour créer une chanson :

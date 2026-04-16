@@ -19,7 +19,15 @@ const SongItem = (props) => {
       console.log(err);
     }
   }
-
+  const song = {
+    titre: props.titre,
+    album: props.album,
+    annee: props.annee,
+    duree: props.duree,
+    note: props.note,
+    artiste: props.artiste,
+    lien: props.lien,
+  };
   // const auth = useContext(AuthContext);
   return (
     <li className="song-card">
@@ -33,15 +41,17 @@ const SongItem = (props) => {
         {props.children}
         <div className="song-card-options">
           {auth.isLoggedIn ? (
-            <Link to="/">
-              <button>...</button>
-            </Link>
+            <>
+              <Link to={`/edit/${props.id}`}>
+                <button>...</button>
+              </Link>
+              <img
+                onClick={() => deleteSong()}
+                src={Ximage}
+                alt="delete-song-button"
+              />
+            </>
           ) : null}
-          <img
-            onClick={() => deleteSong()}
-            src={Ximage}
-            alt="delete-song-button"
-          />
         </div>
       </div>
     </li>
