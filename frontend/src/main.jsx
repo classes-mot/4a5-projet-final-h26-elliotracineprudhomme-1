@@ -6,8 +6,6 @@ import App from "./components/App";
 
 createRoot(document.getElementById("root")).render(
   <Suspense fallback={<p>Un moment...</p>}>
-    <StrictMode>
       <App />
-    </StrictMode>
   </Suspense>,
 );

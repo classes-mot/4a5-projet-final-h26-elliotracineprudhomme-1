@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-
+import "./Language.css";
 const Language = () => {
   const { i18n } = useTranslation();
   const changeLanguage = (lang) => {

@@ -7,10 +7,11 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const ModifySongForm = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const songID = useParams().songID;
   const [loadedSong, setLoadedSong] = useState(null);
+  const { sendRequest } = useHttpClient();
   console.log("1-la chanson : ", loadedSong);
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
@@ -20,12 +21,7 @@ const ModifySongForm = () => {
   const [emptyLength, setIsLengthEmpty] = useState(false);
   const [emptyRating, setIsRatingEmpty] = useState(false);
 
-  async function modifySongSubmitHandler(event) {
-    event.preventDefault();
-    const fd = new FormData(event.target);
-    const data = Object.fromEntries(fd.entries());
-  }
-  const { sendRequest } = useHttpClient();
+  // recherche de la chanson :
   useEffect(() => {
     const fetchSong = async () => {
       try {
@@ -33,15 +29,14 @@ const ModifySongForm = () => {
           `http://localhost:5000/api/songs/${songID}`,
         );
         setLoadedSong(reponse.song);
-        console.log("2-la chanson ", loadedSong);
       } catch (err) {
         console.log("erreur lors de la recherche de la chanson : ", err);
       }
     };
     fetchSong();
   }, [sendRequest]);
+  // si la chanson n'est pas trouvée :
   if (loadedSong == undefined) {
-    console.log("3-la chanson ", loadedSong);
     return (
       <div className="song-error-card">
         <h3>Une erreur s'est produite</h3>
@@ -49,7 +44,72 @@ const ModifySongForm = () => {
       </div>
     );
   }
+  // mise à jour de la chanson
+  async function modifySongSubmitHandler(event) {
+    event.preventDefault();
+    const fd = new FormData(event.target);
+    const data = Object.fromEntries(fd.entries());
 
+    // vérif des données :
+    if (data.title == "") {
+      setIsTitleEmpty(true);
+      return;
+    }
+    if (data.album == "") {
+      setIsAlbumEmpty(true);
+      return;
+    }
+    if (data.artist == "") {
+      setIsArtistEmpty(true);
+      return;
+    }
+    if (data.link == "") {
+      setIsLinkEmpty(true);
+      return;
+    }
+    if (data.year == "") {
+      setIsYearEmpty(true);
+      return;
+    }
+    if (data.length == "") {
+      setIsLengthEmpty(true);
+      return;
+    }
+    if (data.rating == "") {
+      setIsRatingEmpty(true);
+      return;
+    }
+
+    const updatedSong = {
+      titre: data.title,
+      album: data.album,
+      annee: data.year,
+      duree: data.length,
+      note: data.rating,
+      artiste: data.artist,
+      lien: data.link,
+    };
+    try {
+      const response = await sendRequest(
+        `http://localhost:5000/api/songs/${songID}`,
+        "PATCH",
+        JSON.stringify(updatedSong),
+        {
+          Authorization: "Bearer " + auth.token,
+        },
+      );
+      if (!response) {
+        console.log("Une erreur s'est produite lors de l'envoi de la nouvelle chanson");
+      } else {
+        console.log("La modification s'est faite avec succès")
+      }
+    } catch (err) {
+      console.log(
+        "erreur lors de la modification de la chanson: ",
+        err.message,
+      );
+    }
+  }
   return (
     <>
       <div className="song-form-card">

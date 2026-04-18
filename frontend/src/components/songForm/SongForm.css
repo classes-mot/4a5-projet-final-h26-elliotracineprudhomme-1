@@ -31,8 +31,8 @@
     font-family: var(--font);
     margin: 6px;
     background-color: #000a21;
-    border: solid 3px #0036aabd;
-    color: #145fffbd;
+  border: solid 3px #4882ffbd;
+  color: #8aafffbd;
     width: 100px;
 }
 
@@ -44,6 +44,7 @@
     border-radius: var(--golden-number);
     background-color: #0036ab8a;
     border: solid 2px #00309b;
+    color:rgb(165, 186, 255);
     padding: 8px;
     margin: 6px;
     margin-left: 0;

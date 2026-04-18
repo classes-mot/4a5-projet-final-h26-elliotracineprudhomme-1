@@ -9,5 +9,7 @@
   border-radius: 20px;
 }
 .lang-switch {
-  
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }

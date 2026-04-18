@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 const CreateSongForm = () => {
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
-  // const { sendRequest } = useHttpClient();
+  const { sendRequest } = useHttpClient();
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
   const [emptyArtist, setIsArtistEmpty] = useState(false);
@@ -68,23 +68,23 @@ const CreateSongForm = () => {
       lien: data.link,
     };
     try {
-      const response = await fetch(
+      const response = await sendRequest(
         "http://localhost:5000/api/songs",
-
+        "POST",
+        JSON.stringify(newSong),
         {
-          body: JSON.stringify(newSong),
-          method: "POST",
-          headers: {
-            Authorization: "Bearer " + auth.token,
-          },
+          Authorization: "Bearer " + auth.token,
         },
       );
       if (!response) {
         console.log("une erreur s'est produite.");
+      } else {
+        console.log("Ajout fonctionnel");
       }
     } catch (err) {
       console.log("Erreur lors de l'ajout : ", err);
     }
+    event.target.reset();
   }
   return (
     <>
@@ -93,7 +93,12 @@ const CreateSongForm = () => {
         <form className="song-form" onSubmit={addSongSubmitHandler}>
           <div className="label-input">
             <label htmlFor="title">{t("createSong.song-title")}</label>
-            <input id="title" type="text" name="title" placeholder={t("createSong.title-placeholder")} />
+            <input
+              id="title"
+              type="text"
+              name="title"
+              placeholder={t("createSong.title-placeholder")}
+            />
             {emptyTitle ? (
               <p className="form-error">{t("createSong.empty-title")}</p>
             ) : null}
@@ -109,7 +114,12 @@ const CreateSongForm = () => {
 
           <div className="label-input">
             <label htmlFor="artist">{t("createSong.song-artist")}</label>
-            <input id="artist" type="text" name="artist" placeholder={t("createSong.artist-placeholder")} />
+            <input
+              id="artist"
+              type="text"
+              name="artist"
+              placeholder={t("createSong.artist-placeholder")}
+            />
             {emptyArtist ? (
               <p className="form-error">{t("createSong.empty-artist")}</p>
             ) : null}
@@ -150,9 +160,7 @@ const CreateSongForm = () => {
               placeholder="XminXsec"
             />
             {emptyLength ? (
-              <p className="form-error">
-                {t("createSong.empty-length")}
-              </p>
+              <p className="form-error">{t("createSong.empty-length")}</p>
             ) : null}
           </div>
 
