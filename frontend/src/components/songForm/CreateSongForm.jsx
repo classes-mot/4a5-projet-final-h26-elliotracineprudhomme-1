@@ -4,8 +4,10 @@ import { useState } from "react";
 import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
 import { useHttpClient } from "../../hooks/http-hook.js";
+import { useTranslation } from "react-i18next";
 
 const CreateSongForm = () => {
+  const { t } = useTranslation();
   const auth = useContext(AuthContext);
   // const { sendRequest } = useHttpClient();
   const [emptyTitle, setIsTitleEmpty] = useState(false);
@@ -15,6 +17,7 @@ const CreateSongForm = () => {
   const [emptyYear, setIsYearEmpty] = useState(false);
   const [emptyLength, setIsLengthEmpty] = useState(false);
   const [emptyRating, setIsRatingEmpty] = useState(false);
+
   async function addSongSubmitHandler(event) {
     event.preventDefault();
     const fd = new FormData(event.target);
@@ -86,13 +89,13 @@ const CreateSongForm = () => {
   return (
     <>
       <div className="song-form-card">
-        <h1>New song</h1>
+        <h1>{t("createSong.title")}</h1>
         <form className="song-form" onSubmit={addSongSubmitHandler}>
           <div className="label-input">
-            <label htmlFor="title">Title</label>
-            <input id="title" type="text" name="title" placeholder="title" />
+            <label htmlFor="title">{t("createSong.song-title")}</label>
+            <input id="title" type="text" name="title" placeholder={t("createSong.title-placeholder")} />
             {emptyTitle ? (
-              <p className="form-error">please specify the title.</p>
+              <p className="form-error">{t("createSong.empty-title")}</p>
             ) : null}
           </div>
 
@@ -100,46 +103,46 @@ const CreateSongForm = () => {
             <label htmlFor="album">Album</label>
             <input id="album" type="text" name="album" placeholder="album" />
             {emptyAlbum ? (
-              <p className="form-error">please specify the album.</p>
+              <p className="form-error">{t("createSong.empty-album")}</p>
             ) : null}
           </div>
 
           <div className="label-input">
-            <label htmlFor="artist">Artist</label>
-            <input id="artist" type="text" name="artist" placeholder="artist" />
+            <label htmlFor="artist">{t("createSong.song-artist")}</label>
+            <input id="artist" type="text" name="artist" placeholder={t("createSong.artist-placeholder")} />
             {emptyArtist ? (
-              <p className="form-error">please specify the artist.</p>
+              <p className="form-error">{t("createSong.empty-artist")}</p>
             ) : null}
           </div>
 
           <div className="label-input">
-            <label htmlFor="link">Link</label>
+            <label htmlFor="link">{t("createSong.song-link")}</label>
             <input
               id="link"
               type="text"
               name="link"
-              placeholder="Spotify link"
+              placeholder={t("createSong.link-placeholder")}
             />
             {emptyLink ? (
-              <p className="form-error">please enter the link.</p>
+              <p className="form-error">{t("createSong.empty-link")}</p>
             ) : null}
           </div>
 
           <div className="label-input">
-            <label htmlFor="year">Year</label>
+            <label htmlFor="year">{t("createSong.song-year")}</label>
             <input
               id="year"
               type="number"
               name="year"
-              placeholder="year of release"
+              placeholder={t("createSong.year-placeholder")}
             />
             {emptyYear ? (
-              <p className="form-error">please specify the year of release.</p>
+              <p className="form-error">{t("createSong.empty-year")}</p>
             ) : null}
           </div>
 
           <div className="label-input">
-            <label htmlFor="length">Length</label>
+            <label htmlFor="length">{t("createSong.song-length")}</label>
             <input
               id="length"
               type="text"
@@ -148,27 +151,27 @@ const CreateSongForm = () => {
             />
             {emptyLength ? (
               <p className="form-error">
-                please specify the length of the song.
+                {t("createSong.empty-length")}
               </p>
             ) : null}
           </div>
 
           <div className="label-input">
-            <label htmlFor="rating">Rating</label>
+            <label htmlFor="rating">{t("createSong.song-rating")}</label>
             <input
               id="rating"
               type="number"
               name="rating"
-              placeholder="out of 5"
+              placeholder={t("createSong.rating-placeholder")}
             />
             {emptyRating ? (
-              <p className="form-error">please rate the song.</p>
+              <p className="form-error">{t("createSong.empty-rating")}</p>
             ) : null}
           </div>
 
           <div>
-            <button type="reset">reset</button>
-            <button type="submit">save</button>
+            <button type="reset">{t("createSong.reset")}</button>
+            <button type="submit">{t("createSong.save")}</button>
           </div>
         </form>
       </div>
