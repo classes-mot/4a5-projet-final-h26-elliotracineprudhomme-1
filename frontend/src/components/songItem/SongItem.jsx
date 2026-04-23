@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./SongItem.css";
 import { AuthContext } from "../../context/app-context.js";
-import { useHttpClient } from "../../hooks/http-hook";
 import Ximage from "../../assets/img/X.png";
 const SongItem = (props) => {
   const auth = useContext(AuthContext);
@@ -28,7 +27,6 @@ const SongItem = (props) => {
     artiste: props.artiste,
     lien: props.lien,
   };
-  // const auth = useContext(AuthContext);
   return (
     <li className="song-card">
       <div className="song-card-upper-section">

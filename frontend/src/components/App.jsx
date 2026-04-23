@@ -9,7 +9,7 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { AuthContext } from "../context/app-context.js";
 import SongList from "./songList/SongList.jsx";
 import LoginForm from "./login/LoginForm.jsx";

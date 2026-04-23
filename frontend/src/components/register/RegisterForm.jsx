@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import "./RegisterForm.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
 import { useTranslation } from "react-i18next";
 
