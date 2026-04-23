@@ -70,3 +70,10 @@
 .song-card-options img {
     max-width: 40px;
 }
+.song-card-upper-section a {
+    color:white;
+    text-decoration: none;
+}
+.song-card-upper-section a:visited {
+    color:rgb(205, 226, 255);
+}

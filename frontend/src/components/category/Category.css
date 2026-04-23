@@ -1,0 +1,61 @@
+.select-box {
+    background-image: url("../../assets/img/select.jpg");
+    max-height: 700px;
+    max-width: 306px;
+    border-radius: 6px;
+    font-family: var(--font);
+    letter-spacing: 2.5px;
+}
+
+.select-box h2 {
+    color: white;
+    margin: 6px;
+    background-color: #000a2177;
+}
+.select-option {
+    display: flex;
+    justify-self: left;
+    margin-left: 12px;
+    border-radius: 12px;
+    padding: 3px;
+    font-family: var(--font);
+    background-color: #000a21;
+    border: solid 3px #4882ffbd;
+    color: #ffffff;
+    font-size: larger;
+}
+
+.select-form {
+    margin-left: 6px;
+    margin-bottom: 0px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.select-form button {
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 20px;
+    background-color: #4882ffbd;
+    border-color: #000a21;
+}
+
+.select-form input {
+    border-radius: 12px;
+    padding: 3px;
+    font-family: var(--font);
+    margin: 6px;
+    background-color: #000a21;
+    border: solid 3px #4882ffbd;
+    color: #ffffff;
+    font-size: larger;
+}
+
+.search-error {
+    color: white;
+    letter-spacing: 2px;
+    margin-left: 18px;
+    margin-top: 0;
+}

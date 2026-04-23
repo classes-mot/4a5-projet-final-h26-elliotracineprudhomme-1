@@ -14,7 +14,7 @@ main {
   min-height: 1000px;
   padding: 16px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-image: url("./assets/img/main-background.jpg");
   margin: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);

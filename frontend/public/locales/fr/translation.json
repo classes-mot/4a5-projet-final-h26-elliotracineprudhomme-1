@@ -59,10 +59,20 @@
     "title": "Une erreur est survenue!",
     "msg": "Cette page est introuvable ..."
   },
-  "song-item":
-  {
-    "img":"retirer la chanson",
+  "song-item": {
+    "img": "retirer la chanson",
     "img-alt": "bouton-retrait-chanson",
-    "btn":"modifier la chanson"
+    "btn": "modifier la chanson"
+  },
+  "select": {
+    "title1": "chercher une chanson",
+    "title2": "trier",
+    "title-value": "titre",
+    "artist-value": "artiste",
+    "rating-value": "note",
+    "empty-search": "veuillez entrer une valeur."
+  },
+  "song-list": {
+    "search-result": "Aucune chanson n'a été trouvée!"
   }
 }

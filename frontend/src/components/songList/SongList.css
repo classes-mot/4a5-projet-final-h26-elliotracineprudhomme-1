@@ -29,7 +29,27 @@
     letter-spacing: 2px;
     padding-bottom: 6px;
 }
+
 .song-list {
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 680px;
+}
+
+::-webkit-scrollbar {
+    width: 1.5em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #0036ab8a;
+    border-radius: 12px;
+    margin-block: 3em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(29, 122, 245);
+    border-radius: 12px;
+    border:5px solid blue;
 }

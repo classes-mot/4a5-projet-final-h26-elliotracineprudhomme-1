@@ -64,5 +64,16 @@
     "img": "remove the song",
     "img-alt": "delete-song-button",
     "btn": "modify the song"
+  },
+  "select": {
+    "title1": "search for songs",
+    "title2": "sort",
+    "title-value": "title",
+    "artist-value": "artist",
+    "rating-value": "rating",
+    "empty-search": "please type in your search"
+  },
+  "song-list": {
+    "search-result": "No songs were found!"
   }
 }
