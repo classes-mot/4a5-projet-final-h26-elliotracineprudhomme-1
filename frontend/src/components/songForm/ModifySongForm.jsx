@@ -12,7 +12,6 @@ const ModifySongForm = () => {
   const songID = useParams().songID;
   const [loadedSong, setLoadedSong] = useState(null);
   const { sendRequest } = useHttpClient();
-  console.log("1-la chanson : ", loadedSong);
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
   const [emptyArtist, setIsArtistEmpty] = useState(false);

@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import "./SongItem.css";
 import { AuthContext } from "../../context/app-context.js";
 import Ximage from "../../assets/img/X.png";
+import { useTranslation } from "react-i18next";
+
 const SongItem = (props) => {
+  const { t } = useTranslation();
   const auth = useContext(AuthContext);
   // const { sendRequest } = useHttpClient();
   async function deleteSong() {
@@ -41,12 +44,13 @@ const SongItem = (props) => {
           {auth.isLoggedIn ? (
             <>
               <Link to={`/edit/${props.id}`}>
-                <button>...</button>
+                <button id="edit-btn" title={t("song-item.btn")}>...</button>
               </Link>
               <img
                 onClick={() => deleteSong()}
                 src={Ximage}
-                alt="delete-song-button"
+                alt={t("song-item.img-alt")}
+                title={t("song-item.img")}
               />
             </>
           ) : null}

@@ -58,5 +58,11 @@
   "error": {
     "title": "Une erreur est survenue!",
     "msg": "Cette page est introuvable ..."
+  },
+  "song-item":
+  {
+    "img":"retirer la chanson",
+    "img-alt": "bouton-retrait-chanson",
+    "btn":"modifier la chanson"
   }
 }

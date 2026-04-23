@@ -43,11 +43,11 @@
 }
 
 .song-card-options {
-    margin-right: 6px;
+    margin-right: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 112px;
+    min-width: 100px;
 }
 
 .song-card-options button {
@@ -66,4 +66,7 @@
 .song-card-options a {
 
     text-decoration: none;
+}
+.song-card-options img {
+    max-width: 40px;
 }
