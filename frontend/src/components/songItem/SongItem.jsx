@@ -30,7 +30,7 @@ const SongItem = (props) => {
   return (
     <li className="song-card">
       <div className="song-card-upper-section">
-        <h3>{props.titre}</h3>
+        <h3 onClick={}>{props.titre}</h3>
         <p>{props.artiste}</p>
         <p>{props.album}</p>
         <p>{props.duree}</p>
