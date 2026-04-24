@@ -11,7 +11,9 @@ const SongItem = (props) => {
   // const { sendRequest } = useHttpClient();
   async function deleteSong() {
     try {
-      await fetch(`http://localhost:5000/api/songs/${props.id}`, {
+      await fetch(
+        import.meta.env.VITE_BACKEND_URL + `songs/${props.id}`, 
+        {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + auth.token,

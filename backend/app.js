@@ -5,6 +5,9 @@ import errorHandler from "./handler/error-handler.js";
 import cors from "cors";
 import { connectDB } from "./util/bd.js";
 
+const port = process.env.PORT || 5000;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/ERP_TP_SYNTHESE_BD";
+
 await connectDB();
 
 const app = express();
@@ -23,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 app.use(errorHandler);
-const port = 5000;
+
 app.listen(port, () => {
   console.log("Le serveur est activé au : ", `http//localhost:${port}`);
 });

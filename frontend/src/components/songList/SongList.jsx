@@ -16,7 +16,8 @@ const SongList = () => {
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const reponse = await sendRequest("http://localhost:5000/api/songs");
+        const reponse = await sendRequest(
+          import.meta.env.VITE_BACKEND_URL + "songs");
         setLoadedSongs(reponse.songs);
       } catch (err) {
         console.log("erreur lors de la recherche des chansons : ", err);

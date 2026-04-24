@@ -30,7 +30,7 @@ describe("Composant SongItem", () => {
         note={testSong.note}
         artiste={testSong.artiste}
         lien={testSong.lien}
-      />,
+      />
     );
 
     expect(screen.getByText(testSong.titre)).toBeInTheDocument(); // le titre

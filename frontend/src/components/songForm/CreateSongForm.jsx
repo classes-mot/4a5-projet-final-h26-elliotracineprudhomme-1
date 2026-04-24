@@ -68,8 +68,7 @@ const CreateSongForm = () => {
       lien: data.link,
     };
     try {
-      const response = await sendRequest(
-        "http://localhost:5000/api/songs",
+      const response = await sendRequest(   import.meta.env.VITE_BACKEND_URL + "songs",
         "POST",
         JSON.stringify(newSong),
         {

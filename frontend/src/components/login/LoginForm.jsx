@@ -26,7 +26,7 @@ const LoginForm = () => {
     event.preventDefault();
     try {
       const reponse = await sendRequest(
-        "http://localhost:5000/api/users/login",
+        import.meta.env.VITE_BACKEND_URL + "users/login",
         "POST",
         JSON.stringify(loginValues),
         {

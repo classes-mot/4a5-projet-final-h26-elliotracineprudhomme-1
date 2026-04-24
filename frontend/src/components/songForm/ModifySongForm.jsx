@@ -25,7 +25,7 @@ const ModifySongForm = () => {
     const fetchSong = async () => {
       try {
         const reponse = await sendRequest(
-          `http://localhost:5000/api/songs/${songID}`,
+          import.meta.env.VITE_BACKEND_URL + `songs/${songID}`,
         );
         setLoadedSong(reponse.song);
       } catch (err) {
@@ -90,7 +90,7 @@ const ModifySongForm = () => {
     };
     try {
       const response = await sendRequest(
-        `http://localhost:5000/api/songs/${songID}`,
+        import.meta.env.VITE_BACKEND_URL + `songs/${songID}`,
         "PATCH",
         JSON.stringify(updatedSong),
         {
