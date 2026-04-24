@@ -32,3 +32,6 @@ body {
   margin: 0;
   height: 100%;
 }
+button:hover {
+  transform: scale(1.05);
+}
