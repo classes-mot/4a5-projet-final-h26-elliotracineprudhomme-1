@@ -1,17 +1,5 @@
-import mongoose from "mongoose";
 import { Song } from "../models/song";
 import { User } from "../models/user";
-
-const url = "mongodb://localhost:27017/ERP_TP_SYNTHESE_BD";
-
-mongoose
-  .connect(url)
-  .then(() => {
-    console.log("La connexion a été établie avec succès!");
-  })
-  .catch(() => {
-    console.log("La connexion a échoué !");
-  });
 
 const addSong = async (req, res, next) => {
   const createdSong = new Task({
