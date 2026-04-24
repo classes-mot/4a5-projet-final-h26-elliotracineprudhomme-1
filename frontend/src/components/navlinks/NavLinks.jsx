@@ -14,8 +14,9 @@ const NavLinks = () => {
   return (
     <ul className="navlinks">
       <li>
+         <img src={ALL} alt="link-to-songs" />
         <NavLink to="/songs">
-          <img src={ALL} alt="link-to-main" />
+          <img src={ALL} alt="link-to-songs" />
         </NavLink>
       </li>
       {!auth.isLoggedIn && (
