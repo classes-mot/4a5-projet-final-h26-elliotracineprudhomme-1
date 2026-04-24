@@ -14,7 +14,6 @@ const NavLinks = () => {
   return (
     <ul className="navlinks">
       <li>
-         <img src={ALL} alt="link-to-songs" />
         <NavLink to="/songs">
           <img src={ALL} alt="link-to-songs" />
         </NavLink>

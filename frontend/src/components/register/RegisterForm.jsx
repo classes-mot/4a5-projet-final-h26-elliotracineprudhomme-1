@@ -22,7 +22,7 @@ const RegisterForm = () => {
     event.preventDefault();
     try {
       const reponse = await fetch(
-        import.meta.env.VITE_BACKEND_URL +"users/register", {
+        import.meta.env.VITE_BACKEND_URL + "register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
