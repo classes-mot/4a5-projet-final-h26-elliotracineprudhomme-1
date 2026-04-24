@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 const SongItem = (props) => {
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
-  // const { sendRequest } = useHttpClient();
   async function deleteSong() {
     try {
       await fetch(
@@ -45,7 +44,7 @@ const SongItem = (props) => {
         <div className="song-card-options">
           {auth.isLoggedIn ? (
             <>
-              <Link to={`/edit/${props.id}`}>
+              <Link to={`/songs/edit/${props.id}`}>
                 <button id="edit-btn" title={t("song-item.btn")}>...</button>
               </Link>
               <img

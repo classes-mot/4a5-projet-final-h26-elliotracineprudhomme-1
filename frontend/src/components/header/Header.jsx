@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="tp-header">
       <h1 className="tp-header-title">
-        <Link to="/">{t("header.title")}</Link>
+        <Link to="/songs">{t("header.title")}</Link>
       </h1>
       <nav className="tp-header-nav">
         <NavLinks />
