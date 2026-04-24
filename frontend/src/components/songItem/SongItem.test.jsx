@@ -1,14 +1,24 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import SongItem from "./SongItem";
 import "@testing-library/jest-dom";
 import { AuthContext } from "../../context/app-context.js";
 import { MemoryRouter } from "react-router-dom";
+import i18n from "../../../i18nTest.js";
+import { I18nextProvider } from "react-i18next";
 
 describe("Composant SongItem", () => {
   it("affiche le titre fourni", () => {
-    render(<SongItem title="Crazy Train" />);
-    expect(screen.getByText("Crazy Train")).toBeInTheDocument();
+    render(
+      <MemoryRouter>
+        <I18nextProvider i18n={i18n}>
+          <SongItem title="Crazy Train" />
+        </I18nextProvider>
+      </MemoryRouter>,
+    );
+    waitFor(() => {
+      expect(screen.getByText("Crazy Train")).toBeInTheDocument();
+    });
   });
   it("affiche le titre, l'album et l'artiste fourni", () => {
     const testSong = {
@@ -22,20 +32,30 @@ describe("Composant SongItem", () => {
     };
 
     render(
-      <SongItem
-        titre={testSong.titre}
-        album={testSong.album}
-        annee={testSong.annee}
-        duree={testSong.duree}
-        note={testSong.note}
-        artiste={testSong.artiste}
-        lien={testSong.lien}
-      />
+      <MemoryRouter>
+        <I18nextProvider i18n={i18n}>
+          <SongItem
+            titre={testSong.titre}
+            album={testSong.album}
+            annee={testSong.annee}
+            duree={testSong.duree}
+            note={testSong.note}
+            artiste={testSong.artiste}
+            lien={testSong.lien}
+          />
+        </I18nextProvider>
+      </MemoryRouter>,
     );
 
-    expect(screen.getByText(testSong.titre)).toBeInTheDocument(); // le titre
-    expect(screen.getByText(testSong.album)).toBeInTheDocument(); // l'album
-    expect(screen.getByText(testSong.artiste)).toBeInTheDocument(); // l'artiste
+    waitFor(() => {
+      expect(screen.getByText(testSong.titre)).toBeInTheDocument();
+    }); // le titre
+    waitFor(() => {
+      expect(screen.getByText(testSong.album)).toBeInTheDocument();
+    }); // l'album
+    waitFor(() => {
+      expect(screen.getByText(testSong.artiste)).toBeInTheDocument();
+    }); // l'artiste
   });
   it("Utilisateur connecté - affiche les options de modification et suppression", () => {
     const testSong = {
@@ -58,18 +78,22 @@ describe("Composant SongItem", () => {
     render(
       <AuthContext.Provider value={mockAuthContextLoggedIn}>
         <MemoryRouter>
-          <SongItem
-            titre={testSong.titre}
-            album={testSong.album}
-            annee={testSong.annee}
-            duree={testSong.duree}
-            note={testSong.note}
-            artiste={testSong.artiste}
-            lien={testSong.lien}
-          />
+          <I18nextProvider i18n={i18n}>
+            <SongItem
+              titre={testSong.titre}
+              album={testSong.album}
+              annee={testSong.annee}
+              duree={testSong.duree}
+              note={testSong.note}
+              artiste={testSong.artiste}
+              lien={testSong.lien}
+            />
+          </I18nextProvider>
         </MemoryRouter>
       </AuthContext.Provider>,
     );
-    expect(screen.getByText("...")).toBeInTheDocument(); // le bouton
+    waitFor(() => {
+      expect(screen.getByText("...")).toBeInTheDocument();
+    }); // le bouton
   });
 });

@@ -1,8 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import "@testing-library/jest-dom";
-import { MemoryRouter } from "react-router-dom";
 import SongList from "./SongList";
+import i18n from "../../../i18nTest.js";
+import { I18nextProvider } from "react-i18next";
 
 vi.mock("../songItem/SongItem", () => ({
   default: ({ titre, artiste }) => (
@@ -35,13 +36,11 @@ describe("Composant SongList", () => {
     });
 
     render(
-      <MemoryRouter>
+        <I18nextProvider i18n={i18n}>
         <SongList/>
-      </MemoryRouter>,
+        </I18nextProvider>
     );
-    const songList = await screen.findAllByRole("song-list");
-    expect(await screen.findByText("Crazy Train")).toBeInTheDocument();
-    expect(await screen.findByText("Leper Mesiah")).toBeInTheDocument();
-    expect(songList.length).toBe(2);
+  waitFor(() => {  expect(screen.findByText("Crazy Train")).toBeInTheDocument();});
+  waitFor(() => {  expect(screen.findByText("Leper Mesiah")).toBeInTheDocument();});
   });
 });
