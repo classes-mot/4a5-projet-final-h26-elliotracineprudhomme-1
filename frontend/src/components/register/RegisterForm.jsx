@@ -21,14 +21,17 @@ const RegisterForm = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const reponse = await fetch(
-        import.meta.env.VITE_BACKEND_URL + "register", {
+      const response = await fetch(
+        import.meta.env.VITE_BACKEND_URL + "users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginValues),
       });
+      if (!response) {
+        console.log("il y a une erreur avec l'enregistrement")
+      }
       console.log("enregistré!!!!");
       navigate("/login");
     } catch (err) {
