@@ -22,7 +22,7 @@ export const useHttpClient = () => {
         }
         return data;
       } catch (err) {
-        console.error(err);
+        console.error(err.message);
         throw err;
       }
     },
