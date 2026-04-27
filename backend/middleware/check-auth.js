@@ -7,7 +7,7 @@ const checkAuth = (req, res, next) => {
     if (!token) {
       throw new Error("le jeton est invalide !");
     }
-    const decodedToken = jwt.verify(token, "TRAVAIL-SYNTHESE!!!!");
+    const decodedToken = jwt.verify(token, process.env.TOKEN);
     req.userData = { userId: decodedToken.userId };
     next();
   } catch (error) {

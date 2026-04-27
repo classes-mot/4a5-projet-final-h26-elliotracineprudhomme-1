@@ -1,5 +1,5 @@
 # Projet
-# URL : https://projet-final-elliotracineprudhomme-od6m.onrender.com/songs
+# URL : https://projet-final-elliotracineprudhomme-od6m.onrender.com
 # informations de connexion:
 # nom d'utilisateur : premiumUSER
 # mot de passe : mdp1
