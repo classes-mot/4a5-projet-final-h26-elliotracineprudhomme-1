@@ -11,6 +11,7 @@
     color: white;
     margin: 6px;
     background-color: #000a2177;
+    width: fit-content;
 }
 .select-option {
     display: flex;
