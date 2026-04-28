@@ -14,17 +14,17 @@ const SongList = () => {
   const { sendRequest } = useHttpClient();
 
   // mélange la liste pour avoir un ordre différent à chaque fois
-  function shuffle() {
-    let unTab = loadedSongs;
-    let i = unTab.length, j, temp;
-    while (--i > 0) {
-      j = Math.floor(Math.random() * (i + 1));
-      temp = unTab[j];
-      unTab[j] = unTab[i];
-      unTab[i] = temp;
-    }
-    setLoadedSongs(unTab);
-  }
+  // function shuffle() {
+  //   let unTab = loadedSongs;
+  //   let i = unTab.length, j, temp;
+  //   while (--i > 0) {
+  //     j = Math.floor(Math.random() * (i + 1));
+  //     temp = unTab[j];
+  //     unTab[j] = unTab[i];
+  //     unTab[i] = temp;
+  //   }
+  //   setLoadedSongs(unTab);
+  // }
 
 
 
@@ -36,7 +36,7 @@ const SongList = () => {
         const reponse = await sendRequest(
           import.meta.env.VITE_BACKEND_URL + "songs");
         setLoadedSongs(reponse.songs);
-        shuffle();
+        // shuffle();
 
       } catch (err) {
         console.log("erreur lors de la recherche des chansons : ", err);
