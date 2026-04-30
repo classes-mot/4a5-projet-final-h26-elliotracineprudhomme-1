@@ -5,11 +5,13 @@ import { AuthContext } from "../../context/app-context.js";
 import { useState } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
 import { useTranslation } from "react-i18next";
+import Loader from "../containers/LoadingCard.jsx";
 
 const LoginForm = () => {
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
+  const [isLoading, setIsLoading] = useState(false);
   const [loginValues, setLoginValues] = useState({
     username: "",
     password: "",
@@ -25,8 +27,10 @@ const LoginForm = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
+      setIsLoading(true);
       const reponse = await sendRequest(
-        import.meta.env.VITE_BACKEND_URL + "users/login",
+        (import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") +
+          "users/login",
         "POST",
         JSON.stringify(loginValues),
         {
@@ -34,12 +38,14 @@ const LoginForm = () => {
         },
       );
       auth.login(reponse.userId, reponse.token);
+      setIsLoading(false);
     } catch (err) {
       console.error(err);
     }
   };
   return (
     <>
+      <div className="spinner"> {isLoading && <Loader />}</div>
       <div className="form-card">
         <h1>{t("login.title")}</h1>
         <form onSubmit={submitHandler}>

@@ -3,11 +3,13 @@ import "./RegisterForm.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
 import { useTranslation } from "react-i18next";
+import Loader from "../containers/LoadingCard.jsx";
 
 const RegisterForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const auth = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [loginValues, setLoginValues] = useState({
     username: "",
     password: "",
@@ -21,17 +23,22 @@ const RegisterForm = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
+      setIsLoading(true);
       const response = await fetch(
-        import.meta.env.VITE_BACKEND_URL + "users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+        (import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") +
+          "users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(loginValues),
         },
-        body: JSON.stringify(loginValues),
-      });
+      );
       if (!response) {
-        console.log("il y a une erreur avec l'enregistrement")
+        console.log("il y a une erreur avec l'enregistrement");
       }
+      setIsLoading(false);
       console.log("enregistré!!!!");
       navigate("/login");
     } catch (err) {
@@ -40,6 +47,7 @@ const RegisterForm = () => {
   };
   return (
     <>
+      <div className="spinner"> {isLoading && <Loader />}</div>
       <div className="form-card">
         <h1>{t("register.title")}</h1>
         <form onSubmit={submitHandler}>

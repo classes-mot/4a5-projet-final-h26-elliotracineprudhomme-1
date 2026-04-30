@@ -11,6 +11,7 @@ const ModifySongForm = () => {
   const auth = useContext(AuthContext);
   const songID = useParams().songID;
   const [loadedSong, setLoadedSong] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { sendRequest } = useHttpClient();
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
@@ -25,7 +26,7 @@ const ModifySongForm = () => {
     const fetchSong = async () => {
       try {
         const reponse = await sendRequest(
-          import.meta.env.VITE_BACKEND_URL + `songs/${songID}`,
+          (import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") + `songs/${songID}`,
         );
         setLoadedSong(reponse.song);
       } catch (err) {
@@ -89,8 +90,9 @@ const ModifySongForm = () => {
       lien: data.link,
     };
     try {
+      setIsLoading(true);
       const response = await sendRequest(
-        import.meta.env.VITE_BACKEND_URL + `songs/${songID}`,
+       ( import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") + `songs/${songID}`,
         "PATCH",
         JSON.stringify(updatedSong),
         {
@@ -98,9 +100,12 @@ const ModifySongForm = () => {
         },
       );
       if (!response) {
-        console.log("Une erreur s'est produite lors de l'envoi de la nouvelle chanson");
+        console.log(
+          "Une erreur s'est produite lors de l'envoi de la nouvelle chanson",
+        );
       } else {
-        console.log("La modification s'est faite avec succès")
+        console.log("La modification s'est faite avec succès");
+        setIsLoading(false);
       }
     } catch (err) {
       console.log(
@@ -111,6 +116,7 @@ const ModifySongForm = () => {
   }
   return (
     <>
+      <div className="spinner"> {isLoading && <Loader />}</div>
       <div className="song-form-card">
         <h1>{loadedSong.titre}</h1>
         <form className="song-form" onSubmit={modifySongSubmitHandler}>

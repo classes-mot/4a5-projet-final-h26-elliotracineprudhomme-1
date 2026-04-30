@@ -10,6 +10,7 @@
 body {
   background-color: var(--main-color);
 }
+
 main {
   min-height: 1000px;
   padding: 16px;
@@ -22,6 +23,7 @@ main {
   padding: 1rem;
   margin: 20px 40px 20px 40px;
 }
+
 @font-face {
   font-family: "retro";
   src: url("./assets/fonts/retro.otf");
@@ -32,6 +34,11 @@ body {
   margin: 0;
   height: 100%;
 }
+
 button:hover {
   transform: scale(1.05);
+}
+
+.spinner {
+  margin: 50px;
 }

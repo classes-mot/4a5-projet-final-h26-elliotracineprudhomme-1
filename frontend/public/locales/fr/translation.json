@@ -57,7 +57,8 @@
   },
   "error": {
     "title": "Une erreur est survenue!",
-    "msg": "Cette page est introuvable ..."
+    "msg": "Cette page est introuvable ...",
+    "song":"Aucune chanson n'a été trouvée."
   },
   "song-item": {
     "img": "retirer la chanson",

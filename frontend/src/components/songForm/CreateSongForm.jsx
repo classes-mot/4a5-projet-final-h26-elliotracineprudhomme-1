@@ -10,6 +10,7 @@ const CreateSongForm = () => {
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
+  const [isLoading, setIsLoading] = useState(false);
   const [emptyTitle, setIsTitleEmpty] = useState(false);
   const [emptyAlbum, setIsAlbumEmpty] = useState(false);
   const [emptyArtist, setIsArtistEmpty] = useState(false);
@@ -68,7 +69,10 @@ const CreateSongForm = () => {
       lien: data.link,
     };
     try {
-      const response = await sendRequest(   import.meta.env.VITE_BACKEND_URL + "songs",
+      setIsLoading(true);
+      const response = await sendRequest(
+        (import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") +
+          "songs",
         "POST",
         JSON.stringify(newSong),
         {
@@ -79,6 +83,7 @@ const CreateSongForm = () => {
         console.log("une erreur s'est produite.");
       } else {
         console.log("Ajout fonctionnel");
+        setIsLoading(false);
       }
     } catch (err) {
       console.log("Erreur lors de l'ajout : ", err);
@@ -87,6 +92,7 @@ const CreateSongForm = () => {
   }
   return (
     <>
+      <div className="spinner"> {isLoading && <Loader />}</div>
       <div className="song-form-card">
         <h1>{t("createSong.title")}</h1>
         <form className="song-form" onSubmit={addSongSubmitHandler}>

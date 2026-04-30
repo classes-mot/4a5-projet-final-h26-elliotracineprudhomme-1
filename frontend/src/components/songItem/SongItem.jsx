@@ -11,13 +11,15 @@ const SongItem = (props) => {
   async function deleteSong() {
     try {
       await fetch(
-        import.meta.env.VITE_BACKEND_URL + `songs/${props.id}`, 
+        (import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") +
+          `songs/${props.id}`,
         {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + auth.token,
+          method: "DELETE",
+          headers: {
+            Authorization: "Bearer " + auth.token,
+          },
         },
-      });
+      );
     } catch (err) {
       console.log(err);
     }
@@ -34,7 +36,9 @@ const SongItem = (props) => {
   return (
     <li className="song-card">
       <div className="song-card-upper-section">
-        <Link to={props.lien}><h3>{props.titre}</h3></Link>
+        <Link to={props.lien}>
+          <h3>{props.titre}</h3>
+        </Link>
         <p>{props.artiste}</p>
         <p>{props.album}</p>
         <p>{props.duree}</p>
@@ -45,7 +49,9 @@ const SongItem = (props) => {
           {auth.isLoggedIn ? (
             <>
               <Link to={`/songs/edit/${props.id}`}>
-                <button id="edit-btn" title={t("song-item.btn")}>...</button>
+                <button id="edit-btn" title={t("song-item.btn")}>
+                  ...
+                </button>
               </Link>
               <img
                 onClick={() => deleteSong()}

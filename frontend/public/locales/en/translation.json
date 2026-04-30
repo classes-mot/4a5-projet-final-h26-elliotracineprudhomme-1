@@ -58,7 +58,8 @@
   },
   "error": {
     "title": "An error has occurred!",
-    "msg": "This page could not be found ..."
+    "msg": "This page could not be found ...",
+    "song":"No song was found."
   },
   "song-item": {
     "img": "remove the song",
