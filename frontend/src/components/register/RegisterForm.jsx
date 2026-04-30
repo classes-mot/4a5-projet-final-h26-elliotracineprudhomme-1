@@ -3,7 +3,7 @@ import "./RegisterForm.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
 import { useTranslation } from "react-i18next";
-import Loader from "../containers/LoadingCard.jsx";
+import Loader from "../containers/LoadingCard";
 
 const RegisterForm = () => {
   const { t } = useTranslation();

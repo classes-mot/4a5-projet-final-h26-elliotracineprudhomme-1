@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/app-context.js";
 import { useState } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
 import { useTranslation } from "react-i18next";
-import Loader from "../containers/LoadingCard.jsx";
+import Loader from "../containers/LoadingCard";
 
 const LoginForm = () => {
   const { t } = useTranslation();
