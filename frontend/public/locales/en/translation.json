@@ -75,5 +75,10 @@
   },
   "song-list": {
     "search-result": "No songs were found!"
+  },
+  "delete-song": {
+    "question": "Do you really want to delete \n the song ",
+    "confirmation-1": "The song ",
+    "confirmation-2": " was deleted."
   }
 }

@@ -9,28 +9,23 @@ const SongItem = (props) => {
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   async function deleteSong() {
-    try {
-      await fetch(
-        import.meta.env.VITE_BACKEND_URL + `songs/${props.id}`, 
-        {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + auth.token,
-        },
-      });
-    } catch (err) {
-      console.log(err);
+    if (confirm(t("delete-song.question") + `${props.titre}?`) == true) {
+      try {
+        await fetch(
+          import.meta.env.VITE_BACKEND_URL + `songs/${props.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: "Bearer " + auth.token,
+            },
+          });
+        alert(t("delete-song.confirmation-1") + `${props.titre}` + t("delete-song.confirmation-2"));
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
-  const song = {
-    titre: props.titre,
-    album: props.album,
-    annee: props.annee,
-    duree: props.duree,
-    note: props.note,
-    artiste: props.artiste,
-    lien: props.lien,
-  };
+
   return (
     <li className="song-card">
       <div className="song-card-upper-section">

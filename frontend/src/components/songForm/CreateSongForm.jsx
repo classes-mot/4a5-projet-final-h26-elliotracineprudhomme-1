@@ -5,8 +5,10 @@ import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
 import { useHttpClient } from "../../hooks/http-hook.js";
 import { useTranslation } from "react-i18next";
+import { Navigate } from "react-router-dom";
 
 const CreateSongForm = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
@@ -27,32 +29,27 @@ const CreateSongForm = () => {
     if (data.title == "") {
       setIsTitleEmpty(true);
       return;
-    }
+    } 
     if (data.album == "") {
       setIsAlbumEmpty(true);
       return;
     }
-
     if (data.artist == "") {
       setIsArtistEmpty(true);
       return;
     }
-
     if (data.link == "") {
       setIsLinkEmpty(true);
       return;
     }
-
     if (data.year == "") {
       setIsYearEmpty(true);
       return;
     }
-
     if (data.length == "") {
       setIsLengthEmpty(true);
       return;
     }
-
     if (data.rating == "") {
       setIsRatingEmpty(true);
       return;
@@ -68,7 +65,7 @@ const CreateSongForm = () => {
       lien: data.link,
     };
     try {
-      const response = await sendRequest(   import.meta.env.VITE_BACKEND_URL + "songs",
+      const response = await sendRequest(import.meta.env.VITE_BACKEND_URL + "songs",
         "POST",
         JSON.stringify(newSong),
         {
@@ -79,6 +76,7 @@ const CreateSongForm = () => {
         console.log("une erreur s'est produite.");
       } else {
         console.log("Ajout fonctionnel");
+        navigate("/songs")
       }
     } catch (err) {
       console.log("Erreur lors de l'ajout : ", err);
