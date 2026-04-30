@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useHttpClient } from "../../hooks/http-hook.js";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ModifySongForm = () => {
   const navigate = useNavigate();

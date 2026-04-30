@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
 import { useHttpClient } from "../../hooks/http-hook.js";
 import { useTranslation } from "react-i18next";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CreateSongForm = () => {
   const navigate = useNavigate();
