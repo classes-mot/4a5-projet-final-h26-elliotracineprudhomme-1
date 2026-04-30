@@ -5,8 +5,10 @@ import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
 import { useHttpClient } from "../../hooks/http-hook.js";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const CreateSongForm = () => {
+  const navigate   = useNavigate();
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
@@ -84,6 +86,7 @@ const CreateSongForm = () => {
       } else {
         console.log("Ajout fonctionnel");
         setIsLoading(false);
+        navigate("/songs");
       }
     } catch (err) {
       console.log("Erreur lors de l'ajout : ", err);

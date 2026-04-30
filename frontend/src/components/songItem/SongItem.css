@@ -6,6 +6,7 @@
     color: white;
     font-family: var(--font);
     min-width: 650px;
+    list-style: none;
 }
 
 .song-card-upper-section {

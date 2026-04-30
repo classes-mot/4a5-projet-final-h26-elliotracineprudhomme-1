@@ -36,6 +36,7 @@
     overflow: scroll;
     overflow-x: hidden;
     max-height: 680px;
+    list-style: none;
 }
 
 ::-webkit-scrollbar {

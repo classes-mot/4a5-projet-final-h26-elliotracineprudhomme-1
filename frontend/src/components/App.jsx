@@ -20,7 +20,7 @@ const routerLoggedIn = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Navigate to="/songs" replace /> },
+      { path: "/", element: <SongList /> },
       { path: "/songs", element: <SongList /> },
       { path: "/songs/edit/:songID", element: <ModifySongForm /> },
       { path: "/songs/add", element: <CreateSongForm /> },
@@ -36,7 +36,7 @@ const routerLoggedOut = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/",element: <Navigate to="/songs" replace /> },
+      { path: "/",element: <SongList /> },
       { path: "/songs", element: <SongList /> },
       { path: "/login", element: <LoginForm /> },
       { path: "/register", element: <RegisterForm /> },

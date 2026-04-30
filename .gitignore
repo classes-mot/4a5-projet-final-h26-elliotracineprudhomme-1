@@ -7,7 +7,9 @@
 logs
 **/*.backup.*
 **/*.back.*
-
+.env
+.env.production
+nodemon.json
 node_modules
 bower_components
 
