@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const CreateSongForm = () => {
-  const navigate = useNavigate();
+  const navigate   = useNavigate();
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
