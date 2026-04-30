@@ -74,10 +74,5 @@
   },
   "song-list": {
     "search-result": "Aucune chanson n'a été trouvée!"
-  },
-  "delete-song": {
-    "question":"Voulez vous vraiment supprimer \n la chanson ",
-    "confirmation-1":"La chanson ",
-    "confirmation-2":" été suprimmée."
   }
 }

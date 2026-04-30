@@ -2,7 +2,6 @@ import "./SongForm.css";
 import { useState, useEffect } from "react";
 import { AuthContext } from "../../context/app-context";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { useHttpClient } from "../../hooks/http-hook.js";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -103,10 +102,8 @@ const ModifySongForm = () => {
       if (!response) {
         console.log("Une erreur s'est produite lors de l'envoi de la nouvelle chanson");
       } else {
-        console.log("La modification s'est faite avec succès")
-        navigate("/songs")
-
-
+        console.log("La modification s'est faite avec succès");
+        navigate("/songs");
       }
     } catch (err) {
       console.log(
