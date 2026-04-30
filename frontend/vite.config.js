@@ -7,5 +7,8 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
-  }
+  },
+  optimizeDeps: {
+    include: ["react-loader-spinner"],
+  },
 });
