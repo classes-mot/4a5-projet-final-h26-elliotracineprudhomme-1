@@ -22,7 +22,6 @@ const SongItem = (props) => {
           },
         },
       );
-      window.location.reload(false);
     } catch (err) {
       console.log(err);
     }
