@@ -1,18 +1,20 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./SongItem.css";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/app-context.js";
 import Ximage from "../../assets/img/X.png";
 import { useTranslation } from "react-i18next";
 
 const SongItem = (props) => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const auth = useContext(AuthContext);
   async function deleteSong() {
     try {
       await fetch(
         (import.meta.env.VITE_BACKEND_URL || "http//localhost:3000/api/") +
-          `songs/${props.id}`,
+        `songs/${props.id}`,
         {
           method: "DELETE",
           headers: {
@@ -20,6 +22,7 @@ const SongItem = (props) => {
           },
         },
       );
+      navigate("/songs");
     } catch (err) {
       console.log(err);
     }
