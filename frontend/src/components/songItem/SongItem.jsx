@@ -22,7 +22,7 @@ const SongItem = (props) => {
           },
         },
       );
-      navigate("/songs");
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
